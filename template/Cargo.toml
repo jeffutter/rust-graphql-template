@@ -8,8 +8,8 @@ repository = "https://github.com/{{gh-username}}/{{project-name}}"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-async-graphql = { version = "7.0.2", features = ["tracing"] }
-async-graphql-axum = "7.0.2"
+async-graphql = { version = "7.0.3", features = ["tracing"] }
+async-graphql-axum = "7.0.3"
 axum = "0.7.4"
 clap = { version = "4.5.0", features = ["derive", "env"] }
 mimalloc = { version = "0.1.39" }
