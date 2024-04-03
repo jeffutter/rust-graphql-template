@@ -36,10 +36,16 @@ struct Query;
 
 #[Object]
 impl Query {
+    {% if federation -%}
     #[graphql(entity)]
     async fn find_obj_id(&self, id: ID) -> Option<Obj> {
         Some(Obj { id })
     }
+    {%- else -%}
+    async fn obj(&self, id: ID) -> Option<Obj> {
+        Some(Obj { id })
+    }
+    {%- endif %}
 }
 
 async fn graphiql() -> impl IntoResponse {
@@ -70,6 +76,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let addr = format!("0.0.0.0:{}", args.port);
 
     let schema = Schema::build(Query, EmptyMutation, EmptySubscription)
+        {%- if federation %}
+        .enable_federation()
+        {%- endif %}
         .extension(Tracing)
         .finish();
 

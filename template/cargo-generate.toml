@@ -12,5 +12,10 @@ regex = "^[A-Za-z0-9][A-Za-z0-9-]{0,38}$"
 type = "string"
 prompt = "Project description"
 
+[placeholders.federation]
+type = "bool"
+prompt = "Enable Federation"
+default = true
+
 [hooks]
 pre = ["pre-script.rhai"]

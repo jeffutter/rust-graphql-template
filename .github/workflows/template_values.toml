@@ -1,3 +1,4 @@
 [values]
 gh-username = "jeffutter"
 project-description = "Rust gRPC Template"
+federation = true
